@@ -36,6 +36,11 @@ The default discovery method is `iterative`.
            performed per round-trip-time. For details please refer to:
   [A Practical Congestion Control Scheme for Named Data
   Networking](https://www.researchgate.net/publication/306259672_A_Practical_Congestion_Control_Scheme_for_Named_Data_Networking)
+  
+* `cubic` : sends Interests using the TCP-Cubic algorithm to control
+  the window size. For details of the TCP-Cubic, please refer to:
+  [CUBIC: A New TCP-Friendly High-Speed TCP Variant](http://netsrv.csc.ncsu.edu/export/cubic_a_new_tcp_2008.pdf)
+
 
 The default Interest pipeline type is `fixed`.
 
@@ -81,5 +86,12 @@ file:
 
     ndncatchunks -d fixed ndn:/localhost/demo/gpl3/%FD%00%00%01Qc%CF%17v
 
+To retrieve the file with `aimd` pipeline:
+
+    ndncatchunks -t aimd -d iterative ndn:/localhost/demo/gpl3
+    
+To retrieve the file with `cubic` pipeline:
+
+    ndncatchunks -t cubic -d iterative ndn:/localhost/demo/gpl3
 
 For more information, run the programs with `--help` as argument.
